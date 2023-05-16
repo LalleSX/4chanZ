@@ -13,12 +13,6 @@ const Header = () => {
 	const catalogUrl = `https://boards.4chan.org/${board}/catalog`
 	const [settingsVisible, setSettingsVisible] = useState<boolean>(false)
 	// Remove the default header
-	$("#boardNavDesktop").remove()
-	$(".danbo-slot").remove()
-	$("h4").remove()
-	$(".abovePostForm").remove()
-	$(".boardList").remove()
-	$("#boardNavMobile").remove()
 
 	const toggleSettingsPopup = () => {
 		setSettingsVisible(!settingsVisible)

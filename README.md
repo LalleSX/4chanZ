@@ -8,10 +8,11 @@
 - [x] Image hover. Not on catalog yet
 - [x] Catalog improvements
 - [x] Added Header
-- [ ] Settings menu. Not working but it's there
+- [x] Settings menu. Needs to be optimized
 
 ## Planned Features
 
+- [ ] Optiimize for all themes. Right now it only looks good on Yotsuba B
 - [ ] Image hover on catalog
 - [ ] Filter threads/posts
 - [ ] Have remote filters
