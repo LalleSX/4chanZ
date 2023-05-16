@@ -52,6 +52,9 @@ $(document).ready(() => {
 				}
 				// Add css to the class "quote" and make the text green #789922
 				threadTeaser.find(".quote").css("color", "#789922")
+
+				threadTeaser.find(".quotelink").css("color", "#d00")
+				threadTeaser.find(".quotelink").css("font-weight", "350")
 			}
 		})
 	})

@@ -1,19 +1,25 @@
-import React, { useState } from "react"
-import { Config } from "~/entries/options/Conf"
-
+import React, { useState, useEffect } from "react"
 
 interface SettingsPopupProps {
     onClose: () => void;
 }
 
-
 const SettingsPopup: React.FC<SettingsPopupProps> = ({ onClose }) => {
     const [activeTab, setActiveTab] = useState<string>("Main")
+    const [imageHover, setImageHover] = useState<boolean>(false)
 
-    const handleImageHoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newConfig = { ...Config }
-        newConfig.main.ImageHover = e.target.checked
-        chrome.storage.sync.set({ config: newConfig })
+    // Load settings from localStorage on component mount
+    useEffect(() => {
+        const storedImageHover = localStorage.getItem("imageHover")
+        if (storedImageHover !== null) {
+            setImageHover(JSON.parse(storedImageHover))
+        }
+    }, [])
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.checked
+        setImageHover(newValue)
+        localStorage.setItem("imageHover", JSON.stringify(newValue))
     }
 
     return (
@@ -45,8 +51,8 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ onClose }) => {
                                     id="image-hover"
                                     type="checkbox"
                                     className="mr-2"
-                                    checked={Config.main.ImageHover}
-                                    onChange={handleImageHoverChange}
+                                    checked={imageHover}
+                                    onChange={handleChange}
                                 />
                                 Image Hover
                             </label>
@@ -63,5 +69,4 @@ const SettingsPopup: React.FC<SettingsPopupProps> = ({ onClose }) => {
         </div>
     )
 }
-
 export default SettingsPopup

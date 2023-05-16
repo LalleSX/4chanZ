@@ -1,32 +1,33 @@
-# luksus
+# 4chan Z
 
-This template should help get you started developing a react web extension in Vite.
+4chan Z is a 4chan extension that adds a variety of features to the site.
 
-## Usage Notes
 
-The extension manifest is defined in `src/manifest.js` and used by `@samrum/vite-plugin-web-extension` in the vite config.
+## Features
 
-Background, content scripts, options, and popup entry points exist in the `src/entries` directory. 
+- [x] Image hover. Not on catalog yet
+- [x] Catalog improvements
+- [x] Added Header
+- [ ] Settings menu. Not working but it's there
 
-Content scripts are rendered by `src/entries/contentScript/renderContent.js` which renders content within a ShadowRoot
-and handles style injection for HMR and build modes.
+## Planned Features
 
-Otherwise, the project functions just like a regular Vite project.
+- [ ] Image hover on catalog
+- [ ] Filter threads/posts
+- [ ] Have remote filters
+- [ ] Thread watcher
+- [ ] Quick reply
+- [ ] Gallery mode
+- [ ] Preformace improvements
+- [ ] Better settings menu
+- [ ] Embed link
+- [ ] Better catalog, sort by bump, etc
 
-To switch between Manifest V2 and Manifest V3 builds, use the MANIFEST_VERSION environment variable defined in `.env`
-
-HMR during development in Manifest V3 requires Chromium version >= 110.0.5480.0.
-
-Refer to [@samrum/vite-plugin-web-extension](https://github.com/samrum/vite-plugin-web-extension) for more usage notes.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
 ```sh
-npm install
+pnpm install
 ```
 
 ## Commands

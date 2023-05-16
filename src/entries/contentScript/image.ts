@@ -6,11 +6,8 @@ import { Config } from "../options/Conf"
     Initializes the image hovering functionality for 4chan.
     */
 export function initImageHovering(): void {
-    // Get the user's configuration
-    const config = Config.main.ImageHover
 
-    // If the user has disabled image hovering, do nothing
-    if (!config.valueOf()) {
+    if (localStorage.getItem("imageHover") !== "true") {
         return
     }
 
