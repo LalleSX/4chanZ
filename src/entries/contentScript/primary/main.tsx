@@ -2,18 +2,18 @@ import "../../enableDevHmr"
 import React from "react"
 import ReactDOM from "react-dom/client"
 import renderContent from "../renderContent"
-import App from "./App"
 import "../../../index.css"
 import { initImageHovering } from "../image"
 import $ from "jquery"
 import Header from "./Header"
 import { Thread } from "~/types/thread"
 import removeContent from "../misc/removeContent"
+import QuickReply from "./QuickReply"
 removeContent()
 renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 	ReactDOM.createRoot(appRoot).render(
 		<React.StrictMode>
-			<App />
+			<QuickReply />
 			<Header />
 		</React.StrictMode>
 	)

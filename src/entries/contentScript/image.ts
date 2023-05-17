@@ -34,6 +34,9 @@ export function initImageHovering(): void {
         // Show the image on mouseover and hide it on mouseout
         thumbnail
             .on("mouseover", () => {
+                if (thumbnail.children("img").hasClass("expanded-thumb")) {
+                    return
+                }
                 hoverImage.show()
             })
             .on("mouseout", () => {
