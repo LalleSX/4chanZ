@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import SettingsPopup from "./SettingsPopup"
-import $ from "jquery"
 
 
 
