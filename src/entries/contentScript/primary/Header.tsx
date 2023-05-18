@@ -16,6 +16,7 @@ const Header = () => {
 	const toggleSettingsPopup = () => {
 		setSettingsVisible(!settingsVisible)
 	}
+	const google = "Google"
 
 	return (
 		<div className=" bg-indigo-50 text-gray-900 py-2 px-4 flex justify-between items-center fixed top-0 left-0 w-full border-b border-gray-300 z-10">
@@ -25,6 +26,10 @@ const Header = () => {
 				</a>
 				<a href={catalogUrl} className="mx-2 hover:text-red-500">
 					Catalog
+				</a>
+				<a className="mx-2 hover:text-red-500" href="https://google.com">
+					{google}
+
 				</a>
 			</div>
 			<button

@@ -1,5 +1,4 @@
 import $ from "jquery"
-import { Config } from "../options/Conf"
 
 /**
 
