@@ -10,10 +10,10 @@ import { Thread } from "~/types/thread"
 import removeContent from "../misc/removeContent"
 import QuickReply from "./QuickReply"
 removeContent()
+QuickReply.name
 renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 	ReactDOM.createRoot(appRoot).render(
 		<React.StrictMode>
-			<QuickReply />
 			<Header />
 		</React.StrictMode>
 	)
@@ -22,6 +22,15 @@ renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 $(document).ready(() => {
 
 	console.log("Document is ready!")
+	///// Sort $("#threads").children() by id
+
+	//const threads = $("#threads").children().toArray().sort((a, b) => {
+	//	const aId = parseInt(a.id.split("-")[1])
+	//	const bId = parseInt(b.id.split("-")[1])
+	//	return aId - bId
+	//})
+	////// Append the sorted threads to the $("#threads") element
+	//$("#threads").append(threads)
 	initImageHovering()
 	// Assume the 4chan API URL is like this
 	const apiUrl = "https://a.4cdn.org/{board}/catalog.json"
