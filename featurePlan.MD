@@ -6,6 +6,10 @@
 
 ## Quick reply
 
+- [x] Add the menu itself
+
+- [ ] It can post
+
 ## Settings page
 
 ## Header
