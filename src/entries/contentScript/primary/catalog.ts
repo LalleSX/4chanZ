@@ -50,9 +50,11 @@ function catalog() {
             let threadPicNewSrc = `https://i.4cdn.org/${boardName}/${threadPicTim}${threadPicExt}`
             if (threadPicExt === ".webm") {
                threadPicNewSrc = `https://i.4cdn.org/${boardName}/${threadPicTim}s.jpg`
+            } else if (threadPic.attr("src") === "//s.4cdn.org/image/filedeleted-res.gif") {
+               threadPicNewSrc = "//s.4cdn.org/image/filedeleted-res.gif"
             }
             threadPic.attr("src", threadPicNewSrc)
-            threadPic.attr("loading", null)
+            threadPic.attr("loading", "lazy")
 
          }
       })

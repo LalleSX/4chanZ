@@ -38,7 +38,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "imageboard": "^0.6.25",
+    "imageboard": "^0.6.26",
     "jquery": "^3.6.4",
     "react": "^18.2.0",
     "react-dnd": "^16.0.1",

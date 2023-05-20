@@ -8,7 +8,7 @@ const sharedManifest = {
 		},
 	],
 	icons: {
-		16: "icons/16.png",
+		16: "icons/icon.png",
 		19: "icons/19.png",
 		32: "icons/32.png",
 		38: "icons/38.png",
@@ -28,7 +28,7 @@ const sharedManifest = {
 
 const browserAction = {
 	default_icon: {
-		16: "icons/16.png",
+		16: "icons/icon.png",
 		19: "icons/19.png",
 		32: "icons/32.png",
 		38: "icons/38.png",
