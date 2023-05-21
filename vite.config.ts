@@ -12,7 +12,8 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       webExtension({
-        manifest: getManifest(Number(env.MANIFEST_VERSION)),
+        //Manifest version 2
+        manifest: getManifest(Number(3)),
       }),
     ],
     resolve: {
