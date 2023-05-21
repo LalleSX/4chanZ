@@ -1,0 +1,6 @@
+name: 4chanZ
+packages:
+  - path: dist
+  - path: src
+language: javascript
+appmap_dir: tmp/appmap

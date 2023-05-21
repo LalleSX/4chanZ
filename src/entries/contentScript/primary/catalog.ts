@@ -1,5 +1,7 @@
 import { Thread } from "~/types/thread"
 import $ from "jquery"
+import chanAPI from "~/entries/contentScript/chanAPI"
+
 
 function catalog() {
    ///// Sort $("#threads").children() by id
@@ -12,11 +14,10 @@ function catalog() {
    ////// Append the sorted threads to the $("#threads") element
    //$("#threads").append(threads)
    // Assume the 4chan API URL is like this
-   const apiUrl = "https://a.4cdn.org/{board}/catalog.json"
 
    // Replace {board} with the actual board name
    const boardName = window.location.pathname.split("/")[1]
-   const boardApiUrl = apiUrl.replace("{board}", boardName)
+   const boardApiUrl = chanAPI.catalog(boardName)
 
    $.getJSON(boardApiUrl, (data) => {
       const threads = data.flatMap((page: { threads: Thread[] }) => page.threads)

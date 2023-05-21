@@ -6,16 +6,14 @@ import "../../../index.css"
 import { initImageHovering } from "../image"
 import Header from "./Header"
 import removeContent from "../misc/removeContent"
-import QuickReply from "./QuickReply"
 import catalog from "./catalog"
 import $ from "jquery"
-
+import filter from "./filter"
 
 removeContent()
 renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 	ReactDOM.createRoot(appRoot).render(
 		<React.StrictMode>
-			<QuickReply />
 			<Header />
 		</React.StrictMode>
 	)
@@ -25,5 +23,8 @@ renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 console.log("Document is ready!")
 initImageHovering()
 catalog()
+
+filter()
+
 
 $(window).unbind("scroll")
