@@ -1,19 +1,20 @@
-import chanAPI from "~/entries/contentScript/chanAPI"
 import $ from "jquery"
-import axios from "axios"
-import { Thread } from "~/types/thread"
+// Define the words to filter
+const filterWords: string[] = []
 
-function filter() {
-   axios.get(chanAPI.catalog("g")).then((response) => {
-      const threads = response.data.flatMap((page: { threads: Thread[] }) => page.threads)
-      threads.forEach((thread: Thread) => {
-         const threadId = thread.no
+function filterPosts(): void {
+   // Select all thread divs
+   const threads = $(".thread")
 
-         // if the thread "thread-76759434" exists in the JSON data from the API then remove it
-         if (threadId === 76759434) {
-            $(`#thread-${threadId}`).remove()
+   threads.each(function () {
+      const teaser = $(this).find(".teaser").text().toLowerCase()
+
+      for (let i = 0; i < filterWords.length; i++) {
+         if (teaser.includes(filterWords[i])) {
+            $(this).hide()
+            break
          }
-      })
+      }
    })
 }
-export default filter
+export default filterPosts

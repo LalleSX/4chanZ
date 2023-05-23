@@ -7,9 +7,11 @@
 **Note: This is a work in progress. If a feature is checked off, it means it is implemented but not necessarily working as intended.**
 
 - [x] Image hover. Not on catalog yet
-- [x] Catalog improvements
+- [x] Catalog improvements:
+- Catalog loads with JSON instead of HTML
+- Catalog gifs play on the catalog. This makes the catalog feel more alive
 - [x] Added Header
-- [x] Settings menu. Needs to be optimized
+- [x] Settings menu. (Needs to be optimized)
 
 ## Planned Features
 
@@ -22,9 +24,15 @@
 - [ ] Gallery mode
 - [ ] Preformace improvements
 - [ ] Better settings menu
+- [ ] Better config system
 - [ ] Embed link
 - [ ] Better catalog, sort by bump, etc
 
+## Javascript Libraries
+
+- React
+- Jquery
+- [Imageboard](https://www.npmjs.com/package/imageboard)
 ## Project Setup
 
 ```sh

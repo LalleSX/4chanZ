@@ -8,8 +8,9 @@ import Header from "./Header"
 import removeContent from "../misc/removeContent"
 import catalog from "./catalog"
 import $ from "jquery"
-import filter from "./filter"
+import filterPosts from "./filter"
 
+filterPosts()
 removeContent()
 renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 	ReactDOM.createRoot(appRoot).render(
@@ -23,8 +24,4 @@ renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 console.log("Document is ready!")
 initImageHovering()
 catalog()
-
-filter()
-
-
 $(window).unbind("scroll")

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "displayName": "a 4chan browser extension",
   "author": "LalleSX",
+  "private": true,
   "description": "A @samrum/vite-plugin-web-extension web extension",
   "scripts": {
     "build": "vite build",
@@ -41,7 +42,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "imageboard": "^0.6.26",
+    "imageboard": "^0.6.28",
     "jquery": "^3.6.4",
     "localforage": "^1.10.0",
     "react": "^18.2.0",

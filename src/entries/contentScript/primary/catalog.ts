@@ -4,6 +4,8 @@ import chanAPI from "~/entries/contentScript/chanAPI"
 
 
 function catalog() {
+   // Make the catalog fit the header
+   $("body").css("margin-top", "30px")
    ///// Sort $("#threads").children() by id
 
    //const threads = $("#threads").children().toArray().sort((a, b) => {
