@@ -33,6 +33,7 @@
 - React
 - Jquery
 - [Imageboard](https://www.npmjs.com/package/imageboard)
+- Tailwind CSS
 ## Project Setup
 
 ```sh
