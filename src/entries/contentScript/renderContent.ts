@@ -18,19 +18,21 @@ export default async function renderContent(
 		await addViteStyleTarget(shadowRoot)
 	} else {
 		const fragment = document.createDocumentFragment()
-		await Promise.all(
-			cssPaths.map((cssPath: string) => {
-				return new Promise((resolve, reject) => {
-					const styleEl = document.createElement("link")
-					styleEl.setAttribute("rel", "stylesheet")
-					styleEl.setAttribute("href", browser.runtime.getURL(cssPath))
-					styleEl.onload = resolve
-					styleEl.onerror = reject
-					fragment.appendChild(styleEl)
-				})
+		const stylePromises = cssPaths.map((cssPath: string) => {
+			const styleEl = document.createElement("link")
+			styleEl.setAttribute("rel", "stylesheet")
+			styleEl.setAttribute("href", browser.runtime.getURL(cssPath))
+			fragment.appendChild(styleEl)
+
+			return new Promise((resolve, reject) => {
+				styleEl.onload = resolve
+				styleEl.onerror = reject
 			})
-		)
+		})
+
 		shadowRoot.appendChild(fragment)
+
+		await Promise.all(stylePromises)
 	}
 
 	shadowRoot.appendChild(appRoot)
