@@ -5,7 +5,7 @@ import "./App.css"
 function App() {
 	return (
 		<main>
-			<PageContent>Popup</PageContent>
+			<PageContent>4chanZ</PageContent>
 		</main>
 	)
 }

@@ -9,6 +9,7 @@ import removeContent from "../misc/removeContent"
 import catalog from "./catalog"
 import $ from "jquery"
 import filterPosts from "./filter"
+import thread from "./thread"
 
 filterPosts()
 removeContent()
@@ -21,7 +22,10 @@ renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
 })
 // Initialize the image hovering functionality once the document is ready
 
-console.log("Document is ready!")
+
+// Delete this <script type="text/javascript" data-cfasync="false" src="//s.4cdn.org/js/extension.min.1160.js"></script>
+$("script[src='//s.4cdn.org/js/extension.min.1160.js']").remove()
+thread()
 initImageHovering()
 catalog()
 $(window).unbind("scroll")
