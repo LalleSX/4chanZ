@@ -1,5 +1,5 @@
 export interface Thread {
-   no: number
+   no: string
    sticky: number
    closed: number
    now: string

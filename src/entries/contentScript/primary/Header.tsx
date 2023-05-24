@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import SettingsPopup from "./SettingsPopup"
 
-
-
 const Header = () => {
 	// Get the board name from the URL (e.g. /g/ or /pol/)
 	const board = window.location.pathname.split("/")[1]
@@ -16,7 +14,9 @@ const Header = () => {
 	const toggleSettingsPopup = () => {
 		setSettingsVisible(!settingsVisible)
 	}
-	const google = "Google"
+
+	// List of boards for custom navigation
+	const customBoardNavigation: string[] = ["g", "pol", "sci"]
 
 	return (
 		<div className=" bg-indigo-50 text-gray-900 py-2 px-4 flex justify-between items-center fixed top-0 left-0 w-full border-b border-gray-300 z-10">
@@ -27,10 +27,13 @@ const Header = () => {
 				<a href={catalogUrl} className="mx-2 hover:text-red-500">
 					Catalog
 				</a>
-				<a className="mx-2 hover:text-red-500" href="https://google.com">
-					{google}
-
-				</a>
+				{
+					customBoardNavigation.map(board => (
+						<a key={board} href={`https://boards.4chan.org/${board}/`} className="mx-2 hover:text-red-500">
+							{board.toLocaleLowerCase()}
+						</a>
+					))
+				}
 			</div>
 			<button
 				onClick={toggleSettingsPopup}
@@ -38,11 +41,13 @@ const Header = () => {
 			>
 				Settings
 			</button>
-			{settingsVisible && (
-				<div className="absolute right-0 mt-2">
-					<SettingsPopup onClose={toggleSettingsPopup} />
-				</div>
-			)}
+			{
+				settingsVisible && (
+					<div className="absolute right-0 mt-2">
+						<SettingsPopup onClose={toggleSettingsPopup} />
+					</div>
+				)
+			}
 		</div>
 	)
 }
