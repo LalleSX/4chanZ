@@ -2,6 +2,10 @@ import $ from "jquery"
 import chanAPI from "~/entries/contentScript/chanAPI"
 
 function thread() {
+   // If the pathname is not like this: /{board}/thread/{threadId}, then return
+   if (window.location.pathname.split("/").length < 4) {
+      return
+   }
    const HEADER_MARGIN_TOP = "50px"
    const BOARD_NAME = window.location.pathname.split("/")[1]
    const THREAD_ID = window.location.pathname.split("/")[3]

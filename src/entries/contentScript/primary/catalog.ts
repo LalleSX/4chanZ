@@ -3,6 +3,10 @@ import $ from "jquery"
 import chanAPI from "~/entries/contentScript/chanAPI"
 
 function catalog() {
+   // if the url does not contain /catalog, then return
+   if (!window.location.pathname.includes("/catalog")) {
+      return
+   }
    const HEADER_MARGIN_TOP = "50px"
    const BOARD_NAME = window.location.pathname.split("/")[1]
    const BOARD_API_URL = chanAPI.catalog(BOARD_NAME)
@@ -12,23 +16,6 @@ function catalog() {
    $.getJSON(BOARD_API_URL, (data) => {
       data.flatMap((page: { threads: Thread[] }) => page.threads).forEach((thread: Thread) => {
          const { no: threadId, com: comment, sub: subject, tim: threadPicTim, ext: threadPicExt } = thread
-
-         // assuming each thread teaser has an id like `thread-{id}`
-
-
-
-         ///// Sort $("#threads").children() by id
-
-         //const threads = $("#threads").children().toArray().sort((a, b) => {
-         //	const aId = parseInt(a.id.split("-")[1])
-         //	const bId = parseInt(b.id.split("-")[1])
-         //	return aId - bId
-         //})
-         ////// Append the sorted threads to the $("#threads") element
-         //$("#threads").append(threads)
-         // Assume the 4chan API URL is like this
-
-         // Replace {board} with the actual board name
          const threadTeaser = $(`#thread-${threadId} > .teaser`)
 
          if (threadTeaser.length > 0) {
