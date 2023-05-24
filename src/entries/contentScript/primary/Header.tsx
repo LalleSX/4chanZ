@@ -19,27 +19,29 @@ const Header = () => {
 	const customBoardNavigation: string[] = ["g", "pol", "sci"]
 
 	return (
-		<div className=" bg-indigo-50 text-gray-900 py-2 px-4 flex justify-between items-center fixed top-0 left-0 w-full border-b border-gray-300 z-10">
-			<div className="flex">
-				<a href={indexUrl} className="mx-2 hover:text-red-500">
-					Index
-				</a>
+		<div className=" bg-indigo-50 text-gray-900 py-0.5 px-4 flex justify-between items-center fixed top-0 left-0 w-full border-b border-gray-300 z-10 border-solid">
+			<div className="flex items-center">
+				< a href={indexUrl} className="mx-2 hover:text-red-500" >
+					<p className="font-bold">Index</p>
+				</a >
 				<a href={catalogUrl} className="mx-2 hover:text-red-500">
-					Catalog
+					<p className="font-bold">Catalog</p>
 				</a>
+				[
 				{
 					customBoardNavigation.map(board => (
-						<a key={board} href={`https://boards.4chan.org/${board}/`} className="mx-2 hover:text-red-500">
+						<a key={board} href={`https://boards.4chan.org/${board}/`} className="mx-2 hover:text-red-500 font-bold">
 							{board.toLocaleLowerCase()}
 						</a>
 					))
 				}
-			</div>
+				]
+			</div >
 			<button
 				onClick={toggleSettingsPopup}
-				className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1.5 rounded"
+				className="bg-chanBlue hover:bg-chanRed text-white font-bold rounded text-sm focus:outline-none focus:shadow-outline px-0.5 py-0.5"
 			>
-				Settings
+				<p>Settings</p>
 			</button>
 			{
 				settingsVisible && (
@@ -48,7 +50,7 @@ const Header = () => {
 					</div>
 				)
 			}
-		</div>
+		</div >
 	)
 }
 
