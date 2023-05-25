@@ -2,6 +2,8 @@
 
 4chan Z is a 4chan extension that adds a variety of features to the site.
 
+### The React code is currently not showing up when you build it, but it shows up in the vite dev
+
 ## Features
 
 **Note: This is a work in progress. If a feature is checked off, it means it is implemented but not necessarily working as intended.**
@@ -34,6 +36,7 @@
 - Jquery
 - [Imageboard](https://www.npmjs.com/package/imageboard)
 - Tailwind CSS
+
 ## Project Setup
 
 ```sh
