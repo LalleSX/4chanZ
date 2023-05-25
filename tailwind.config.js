@@ -8,7 +8,8 @@ export default {
 		extend: {
 			colors: {
 				chanBlue: "#0f0c5d",
-				chanRed: "#d00"
+				chanRed: "#d00",
+				chanQuote: "#789922",
 			},
 
 		},

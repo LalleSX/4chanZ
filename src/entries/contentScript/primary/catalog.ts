@@ -17,19 +17,15 @@ function catalog() {
       data.flatMap((page: { threads: Thread[] }) => page.threads).forEach((thread: Thread) => {
          const { no: threadId, com: comment, sub: subject, tim: threadPicTim, ext: threadPicExt } = thread
          const threadTeaser = $(`#thread-${threadId} > .teaser`)
-
          if (threadTeaser.length > 0) {
-            threadTeaser.html(comment)
+            threadTeaser.html(comment).css("white-space", "pre-wrap")
 
             if (subject) {
                threadTeaser.prepend(`<span class="subject">${subject}</span><br/>`)
                   .find(".subject").css({ color: "#0f0c5d", fontWeight: "700" })
             }
-
             $(`#thread-${threadId} > .teaser > b`).remove()
-
             threadTeaser.find(".quote").css("color", "#789922")
-
             threadTeaser.find(".quotelink").css({ color: "#d00", fontWeight: "350" })
          }
 

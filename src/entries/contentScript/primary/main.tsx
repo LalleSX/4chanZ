@@ -1,6 +1,6 @@
 import "../../enableDevHmr"
 import React from "react"
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom/client"
 import "../../../index.css"
 import { initImageHovering } from "../image"
 import Header from "./Header"
@@ -9,17 +9,18 @@ import catalog from "./catalog"
 import $ from "jquery"
 import filterPosts from "./filter"
 import thread from "./thread"
+import renderContent from "../renderContent"
 
 
 filterPosts()
 removeContent()
-// Render
-const header = document.createElement("div")
-header.id = "header"
-document.body.prepend(header)
-ReactDOM.render(<Header />, header)
-
-
+renderContent(import.meta.PLUGIN_WEB_EXT_CHUNK_CSS_PATHS, (appRoot) => {
+   ReactDOM.createRoot(appRoot).render(
+      <React.StrictMode>
+         <Header />
+      </React.StrictMode>
+   )
+})
 
 // Initialize the image hovering functionality once the document is ready
 
