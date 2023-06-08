@@ -1,6 +1,6 @@
 import { Thread } from "~/types/thread"
 import chanAPI from "../chanAPI"
-
+import "./catalog.css"
 async function catalog(): Promise<void> {
     if (!window.location.pathname.includes("/catalog")) {
         return
@@ -23,25 +23,12 @@ async function catalog(): Promise<void> {
 
         if (threadTeaser) {
             threadTeaser.innerHTML = comment
-            threadTeaser.style.whiteSpace = "pre-wrap"
 
             if (subject) {
                 threadTeaser.innerHTML = `<span class="subject">${subject}</span><br/>` + threadTeaser.innerHTML
-
-                const subjectSpan = threadTeaser.querySelector(".subject")
-
-                if (subjectSpan) {
-                    subjectSpan.style.color = "#0f0c5d"
-                    subjectSpan.style.fontWeight = "700"
-                }
             }
 
             Array.from(threadTeaser.querySelectorAll("b")).forEach((b) => b.remove())
-            Array.from(threadTeaser.querySelectorAll(".quote")).forEach((quote) => quote.style.color = "#789922")
-            Array.from(threadTeaser.querySelectorAll(".quotelink")).forEach((quotelink) => {
-                quotelink.style.color = "#d00"
-                quotelink.style.fontWeight = "350"
-            })
         }
 
         const threadPic = document.querySelector(`#thread-${threadId} > a > img`)
