@@ -1,65 +1,50 @@
-import $ from "jquery"
-
-/**
-
-    Initializes the image hovering functionality for 4chan.
-    */
 export function initImageHovering(): void {
-
-    if (localStorage.getItem("imageHover") !== "true") {
-        return
-    }
-
     // Find all thumbnail images on the page
-    const thumbnails = $("a.fileThumb")
+    const thumbnails = Array.from(document.querySelectorAll("a.fileThumb"))
 
     // Attach hover events to each thumbnail image
-    thumbnails.each(function () {
-        const thumbnail = $(this)
-        const imageUrl = thumbnail.attr("href") as string
+    thumbnails.forEach(thumbnail => {
+        const imageUrl = thumbnail.getAttribute("href")
 
         // Create a new image element to be displayed on hover
-        const hoverImage = $("<img>")
-            .attr("src", imageUrl)
-            .css({
-                position: "fixed",
-                display: "none",
-                border: "none",
-                maxWidth: "100%",
-                maxHeight: "100%",
-            })
-            .appendTo("body")
+        const hoverImage = document.createElement("img")
+        hoverImage.src = imageUrl as string
+        hoverImage.style.position = "fixed"
+        hoverImage.style.display = "none"
+        hoverImage.style.border = "none"
+        hoverImage.style.maxWidth = "100%"
+        hoverImage.style.maxHeight = "100%"
+
+        document.body.appendChild(hoverImage)
 
         // Show the image on mouseover and hide it on mouseout
-        thumbnail
-            .on("mouseover", () => {
-                if (thumbnail.children("img").hasClass("expanded-thumb")) {
-                    return
-                }
-                hoverImage.show()
-            })
-            .on("mouseout", () => {
-                hoverImage.hide()
-            })
+        thumbnail.addEventListener("mouseover", () => {
+            if (Array.from(thumbnail.querySelectorAll("img")).some(img => img.classList.contains("expanded-thumb")))
+                return
+
+            hoverImage.style.display = "block"
+        })
+
+        thumbnail.addEventListener("mouseout", () => {
+            hoverImage.style.display = "none"
+        })
 
         // Update the hover image position based on the mouse cursor
-        thumbnail.on("mousemove", (event) => {
+        thumbnail.addEventListener("mousemove", (event) => {
             const offsetX = 10
             const offsetY = 10
 
-            const imageWidth = hoverImage.width() as number
-            const imageHeight = hoverImage.height() as number
+            const imageWidth = hoverImage.offsetWidth
+            const imageHeight = hoverImage.offsetHeight
 
-            const windowWidth = $(window).width() as number
-            const windowHeight = $(window).height() as number
+            const windowWidth = window.innerWidth
+            const windowHeight = window.innerHeight
 
             const left = Math.min(event.pageX + offsetX, windowWidth - imageWidth - offsetX)
             const top = Math.min(event.pageY + offsetY, windowHeight - imageHeight - offsetY)
 
-            hoverImage.css({
-                left: left + "px",
-                top: top + "px",
-            })
+            hoverImage.style.left = `${left}px`
+            hoverImage.style.top = `${top}px`
         })
     })
 }

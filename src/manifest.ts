@@ -3,7 +3,7 @@ import pkg from "../package.json"
 const sharedManifest = {
 	content_scripts: [
 		{
-			js: ["src/entries/contentScript/primary/main.tsx"],
+			js: ["src/entries/contentScript/primary/main.ts"],
 			matches: ["*://4chan.org/*", "*://boards.4chan.org/*", "*://boards.4channel.org/*"],
 		},
 	],
