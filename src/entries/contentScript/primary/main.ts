@@ -1,4 +1,3 @@
-import "../../enableDevHmr"
 import "../../../index.css"
 import { initImageHovering } from "../image"
 import removeContent from "../misc/removeContent"
